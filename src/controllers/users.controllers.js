@@ -11,12 +11,11 @@ module.exports.createUser = async (req, res) => {
   const name = req.user.displayName;
   const email = req.user.emails[0].value;
   const profile_photo = req.user.photos[0].value;
-  const score = 0;
   const profile_updated = 0;
 
   db.users
     .findOne({ where: { email } })
-    .then((result) => {
+    .then(async (result) => {
       if (!result) {
         db.users
           .create({
@@ -31,6 +30,7 @@ module.exports.createUser = async (req, res) => {
             res.redirect("/updateprofile");
           });
       } else {
+        score = await getScore(req.user.emails[0].value);
         res.render("dashboard", { direct: true, name, score, qr_score: 0 });
       }
     })
