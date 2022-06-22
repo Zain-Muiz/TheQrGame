@@ -31,7 +31,7 @@ module.exports.createUser = async (req, res) => {
             res.redirect("/updateprofile");
           });
       } else {
-        res.render("/dashboard");
+        res.render("dashboard", { direct: true, name, score });
       }
     })
     .catch((err) => {
@@ -65,7 +65,11 @@ module.exports.updateUserInfo = async (req, res) => {
     .then((result) => {
       if (result[0] === 1) {
         const updateduser = result[1];
-        res.render("/dashboard", { user: req.user, score: 0 });
+        res.render("dashboard", {
+          direct: true,
+          name: updateduser.name,
+          score: updateduser.score,
+        });
       } else {
         res.status(404).send({
           message: `User with email=${req.user.email} not found.`,
@@ -91,50 +95,87 @@ module.exports.ScanQR = (req, res) => {
   const qr_link = req.params.id;
   const email = req.user.emails[0].value;
   db.qrCodes
-    .findOne(
-      { where: { qr_link } },
-      {
-        include: {
-          model: db.qrLevels,
-          attributes: ["qr_score"],
-        },
-      }
-    )
-    .then((result) => {
-      console.log("1");
+    .findOne({ where: { qr_link } })
+    .then(async (result) => {
       if (!result) {
-        res.render("/dashboard");
+        score = await GetScore();
+        res.render("dashboard", { direct: true, name: req.user.name, score });
       } else {
-        qr_id = result.id;
-        db.users
-          .findOne({ where: { email } })
-          .then((user) => {
-            console.log("user id : 2");
-            if (!user) {
-              res.render("home");
-            } else {
-              user_id = user.id;
-              db.userQrs.findOne({ where: { user_id, qr_link } }).then((Qr) => {
-                console.log("user qr 3");
-                if (!Qr) {
-                  db.userQrs
-                    .create({
-                      id: uuidv4(),
-                      user_id,
-                      qr_id,
-                    })
-                    .then(() => {
-                      res.render("dashboard");
-                    });
-                } else {
-                  res.render("dashboard");
-                }
-              });
-            }
-          })
-          .catch((err) => {
-            res.send("Error fetching user");
-          });
+        const qr_level = result.qr_level_id;
+        db.qrLevels.findOne({ where: { id: qr_level } }).then((qrLevel) => {
+          console.log("score" + qrLevel.qr_score);
+          qr_id = result.id;
+          qr_score = parseInt(qrLevel.qr_score);
+          db.users
+            .findOne({ where: { email } })
+            .then((user) => {
+              console.log("user id : 2");
+              if (!user) {
+                res.render("home");
+              } else {
+                user_id = user.id;
+                user_score = parseInt(user.score);
+                db.userQrs
+                  .findOne({ where: { user_id, qr_id } })
+                  .then(async (Qr) => {
+                    console.log("user qr 3");
+                    if (!Qr) {
+                      db.userQrs
+                        .create({
+                          id: uuidv4(),
+                          user_id,
+                          qr_id,
+                        })
+                        .then(() => {
+                          new_score = parseInt(user_score) + parseInt(qr_score);
+                          db.users
+                            .update({ score: new_score }, { where: { email } })
+                            .then(() => {
+                              res.render("dashboard", {
+                                direct: false,
+                                qr_score,
+                                score: new_score,
+                                name: req.user.name,
+                              });
+                            })
+                            .catch((err) => {
+                              console.log(err);
+                            });
+                        });
+                    } else {
+                      score = await getScore();
+                      res.render("dashboard", {
+                        direct: true,
+                        name: req.user.name,
+                        score,
+                      });
+                    }
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }
+            })
+            .catch((err) => {
+              res.send("Error fetching user");
+            });
+        });
       }
+    })
+    .catch((err) => {
+      console.log(err);
     });
+};
+
+const getScore = (email) => {
+  db.users
+    .findOne({ where: { email } })
+    .then((user) => {
+      return user.score;
+    })
+    .catch(
+      res.status(500).send({
+        message: err.message || `Error occurred`,
+      })
+    );
 };
