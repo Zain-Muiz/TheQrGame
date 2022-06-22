@@ -31,7 +31,7 @@ module.exports.createUser = async (req, res) => {
             res.redirect("/updateprofile");
           });
       } else {
-        res.render("dashboard", { direct: true, name, score });
+        res.render("dashboard", { direct: true, name, score, qr_score: 0 });
       }
     })
     .catch((err) => {
@@ -69,6 +69,7 @@ module.exports.updateUserInfo = async (req, res) => {
           direct: true,
           name: updateduser.name,
           score: updateduser.score,
+          qr_score: 0,
         });
       } else {
         res.status(404).send({
@@ -98,8 +99,13 @@ module.exports.ScanQR = (req, res) => {
     .findOne({ where: { qr_link } })
     .then(async (result) => {
       if (!result) {
-        score = await GetScore();
-        res.render("dashboard", { direct: true, name: req.user.name, score });
+        score = await getScore();
+        res.render("dashboard", {
+          direct: true,
+          name: req.user.name,
+          score,
+          qr_score: 0,
+        });
       } else {
         const qr_level = result.qr_level_id;
         db.qrLevels.findOne({ where: { id: qr_level } }).then((qrLevel) => {
@@ -148,6 +154,7 @@ module.exports.ScanQR = (req, res) => {
                         direct: true,
                         name: req.user.name,
                         score,
+                        qr_score: 0,
                       });
                     }
                   })

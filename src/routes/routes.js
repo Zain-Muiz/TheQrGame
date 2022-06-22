@@ -8,6 +8,7 @@ const passportAuth = require("../auth/passportAuth");
 //For adding new qr
 router.get("/signup", passportAuth, userController.createUser);
 router.get("/home", publicController.homePage);
+router.get("/register", publicController.homePage);
 // router.get("/welcome", passportAuth, publicController.welcomePage);
 router.get("/updateprofile", passportAuth, userController.updateUserInfoPage);
 router.post("/updateprofile", passportAuth, userController.updateUserInfo);
