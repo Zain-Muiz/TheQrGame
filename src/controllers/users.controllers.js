@@ -102,7 +102,7 @@ module.exports.ScanQR = (req, res) => {
         score = await getScore(req.user.emails[0].value);
         res.render("dashboard", {
           direct: true,
-          name: req.user.name,
+          name: req.user.displayName,
           score,
           qr_score: 0,
         });
@@ -141,7 +141,7 @@ module.exports.ScanQR = (req, res) => {
                                 direct: false,
                                 qr_score,
                                 score: new_score,
-                                name: req.user.name,
+                                name: req.user.displayName,
                               });
                             })
                             .catch((err) => {
@@ -152,7 +152,7 @@ module.exports.ScanQR = (req, res) => {
                       score = await getScore(req.user.emails[0].value);
                       res.render("dashboard", {
                         direct: true,
-                        name: req.user.name,
+                        name: req.user.displayName,
                         score,
                         qr_score: 0,
                       });
