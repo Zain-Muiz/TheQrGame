@@ -175,12 +175,14 @@ module.exports.ScanQR = (req, res) => {
 };
 
 const getScore = (email) => {
-  db.users
-    .findOne({ where: { email } })
-    .then((user) => {
-      return user.score;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return new Promise((resolve, reject) => {
+    db.users
+      .findOne({ where: { email } })
+      .then((user) => {
+        resolve(user.score);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 };
