@@ -99,7 +99,7 @@ module.exports.ScanQR = (req, res) => {
     .findOne({ where: { qr_link } })
     .then(async (result) => {
       if (!result) {
-        score = await getScore();
+        score = await getScore(req.user.emails[0].value);
         res.render("dashboard", {
           direct: true,
           name: req.user.name,
@@ -149,7 +149,7 @@ module.exports.ScanQR = (req, res) => {
                             });
                         });
                     } else {
-                      score = await getScore();
+                      score = await getScore(req.user.emails[0].value);
                       res.render("dashboard", {
                         direct: true,
                         name: req.user.name,
@@ -180,9 +180,7 @@ const getScore = (email) => {
     .then((user) => {
       return user.score;
     })
-    .catch(
-      res.status(500).send({
-        message: err.message || `Error occurred`,
-      })
-    );
+    .catch((err) => {
+      console.log(err);
+    });
 };
