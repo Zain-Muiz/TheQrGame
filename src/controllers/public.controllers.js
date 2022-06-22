@@ -7,5 +7,5 @@ const Op = db.Sequelize.Op;
 //POST USERS
 
 module.exports.homePage = async (req, res) => {
-  res.redirect("/home");
+  res.render("home");
 };

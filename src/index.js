@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const session = require("express-session");
 const routes = require("./routes/routes");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -12,6 +13,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.set("view engine", "ejs");
+
+//set ejs as view engine
+app.set("views", path.join(__dirname, "../views"));
+// middleware & static files
+app.use(express.static(path.join(__dirname, "../public")));
+//url parser
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(
   session({
