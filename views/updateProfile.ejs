@@ -27,11 +27,11 @@
                 <form id="registerForm" action="/updateprofile" method="POST" >
                   <div class="form-floating mb-3">
                     <input disabled type="text" class="form-control" id="userInput" placeholder="Input your Username" autocomplete="off" name="username" required>
-                    <label for="userInput">Name</label>
+                    <label for="userInput"><%= user.displayName  %></label>
                   </div>
                   <div class="form-floating mb-3">
                     <input disabled type="email" class="form-control" id="emailInput" placeholder="Input your email" autocomplete="off" name="email" required>
-                    <label for="emailInput">Email address</label>
+                    <label for="emailInput"><%= user.emails[0].value  %></label>
                   </div>
 
                   <div class="form-floating mb-3">
@@ -76,6 +76,10 @@
           </div>
         </div>
       </div>
+
+      <script>
+       
+      </script>
       
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="reg_js.js"></script>
