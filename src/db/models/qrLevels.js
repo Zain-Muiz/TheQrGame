@@ -1,6 +1,5 @@
 "use strict";
 const { Model } = require("sequelize");
-const QrCodes = require("./QrCodes");
 module.exports = (sequelize, DataTypes) => {
   class qrLevels extends Model {
     /**
