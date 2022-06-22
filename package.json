@@ -1,0 +1,42 @@
+{
+  "name": "theqrgame",
+  "version": "1.0.0",
+  "description": "A QR Based Game",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "makemodel": "npx sequelize-cli model:generate --name registeredusers --attributes name:string,score:integer,count:integer,average:float",
+    "migratemodel": "npx sequelize-cli db:migrate",
+    "undomigratedmodel": "npx sequelize-cli db:migrate:undo",
+    "seed-qrLevelmodelinit": "npx sequelize-cli seed:generate --name demo-qrLevels",
+    "seed-postmodelinit": "npx sequelize-cli seed:generate --name demo-post",
+    "seed-modelsadd": "npx sequelize-cli db:seed:all",
+    "seed-modelsundo": "npx sequelize-cli db:seed:undo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zain-Muiz/TheQrGame.git"
+  },
+  "author": "zainu10863@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zain-Muiz/TheQrGame/issues"
+  },
+  "homepage": "https://github.com/Zain-Muiz/TheQrGame#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
+    "passport": "^0.6.0",
+    "passport-google-oauth": "^2.0.0",
+    "path": "^0.12.7",
+    "qrcode": "^1.5.0",
+    "sequelize": "^6.21.0",
+    "sqlite3": "^5.0.8",
+    "uuid": "^8.3.2"
+  }
+}
