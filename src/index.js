@@ -4,6 +4,7 @@ const cors = require("cors");
 const session = require("express-session");
 const routes = require("./routes/routes");
 const path = require("path");
+const db = require("./db/models");
 
 require("dotenv").config();
 
@@ -49,9 +50,17 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 /* CORS END */
-app.listen(port, () => {
-  console.log(`Server running at http://${host}:${port}`);
+// app.listen(port, () => {
+//   console.log(`Server running at http://${host}:${port}`);
+// });
+
+
+db.sequelize.sync().then(req =>{ 
+    app.listen(3000 , ()=>{
+        console.log("server running");
+    })
 });
+
 
 /* PASSPORT */
 
