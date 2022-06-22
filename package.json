@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "makemodel": "npx sequelize-cli model:generate --name registeredusers --attributes name:string,score:integer,count:integer,average:float",
+    "makemodel": "npx sequelize-cli model:generate --name userQrs --attributes user_id:string,qr_id:string",
     "migratemodel": "npx sequelize-cli db:migrate",
     "undomigratedmodel": "npx sequelize-cli db:migrate:undo",
     "seed-qrLevelmodelinit": "npx sequelize-cli seed:generate --name demo-qrLevels",

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const session = require("express-session");
+const routes = require("./routes/routes");
 
 require("dotenv").config();
 
@@ -39,26 +40,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 /* CORS END */
-
-// qr_links = linkGenerator();
-// qrGenerator(qr_links);
-
-// users route
-// const usersRoute = require("./routes/users.routes");
-// app.use("/users", usersRoute);
-
-// // login route
-// const loginRoute = require("./routes/login.routes");
-// app.use("/login", loginRoute);
-
-// // players route
-// const playersRoute = require("./routes/players.routes");
-// app.use("/createnewteam", playersRoute);
-
-// // admin route
-// const adminRoute = require("./routes/admin.routes");
-// app.use("/admin", adminRoute);
-
 app.listen(port, () => {
   console.log(`Server running at http://${host}:${port}`);
 });
@@ -66,6 +47,7 @@ app.listen(port, () => {
 /* PASSPORT */
 
 const passport = require("passport");
+const router = require("./routes/routes");
 var userProfile;
 
 app.use(passport.initialize());
@@ -111,6 +93,8 @@ app.get(
   passport.authenticate("google", { failureRedirect: "/error" }),
   function (req, res) {
     // Successful authentication, redirect success.
-    res.redirect("/");
+    res.redirect("/signup");
   }
 );
+
+app.use("/", routes);

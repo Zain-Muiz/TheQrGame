@@ -9,10 +9,22 @@
 
 - Models :
   - QR_Model
-    - uuid
+    - id
     - link
     - qr_level
   - QR_Level
-    - uuid
+    - id
     - qr_level
     - qr_point
+  - Users
+    - id
+    - name
+    - email
+    - ph_no
+    - batch
+    - score
+    - profile_updated
+  - User_Qrs
+    - id
+    - user_id
+    - qr_id
