@@ -17,6 +17,7 @@ module.exports.createUser = async (req, res) => {
     .findOne({ where: { email } })
     .then(async (result) => {
       if (!result) {
+        let score = 0;
         db.users
           .create({
             id: uuidv4(),
@@ -30,8 +31,12 @@ module.exports.createUser = async (req, res) => {
             res.redirect("/updateprofile");
           });
       } else {
-        score = await getScore(req.user.emails[0].value);
-        res.render("dashboard", { direct: true, name, score, qr_score: 0 });
+        if (result.profile_updated != 1) {
+          res.redirect("/updateprofile");
+        } else {
+          score = await getScore(req.user.emails[0].value);
+          res.render("dashboard", { direct: true, name, score, qr_score: 0 });
+        }
       }
     })
     .catch((err) => {
@@ -45,6 +50,7 @@ module.exports.createUser = async (req, res) => {
 // POST
 
 module.exports.updateUserInfo = async (req, res) => {
+  console.log("Hey");
   const { ph_no, branch, section, year } = req.body;
   const batch = branch + section + year;
   const email = req.user.emails[0].value;
@@ -63,17 +69,19 @@ module.exports.updateUserInfo = async (req, res) => {
       }
     )
     .then((result) => {
-      if (result[0] === 1) {
-        const updateduser = result[1];
-        res.render("dashboard", {
-          direct: true,
-          name: updateduser.name,
-          score: updateduser.score,
-          qr_score: 0,
+      console.log(result);
+      if (result[1] === 1) {
+        getScore(email).then((score) => {
+          res.render("dashboard", {
+            direct: true,
+            name: req.user.displayName,
+            score,
+            qr_score: 0,
+          });
         });
       } else {
         res.status(404).send({
-          message: `User with email=${req.user.email} not found.`,
+          message: `User with email= ${email} not found.`,
         });
       }
     })
@@ -82,7 +90,7 @@ module.exports.updateUserInfo = async (req, res) => {
       res.status(500).send({
         message:
           err.message ||
-          `Error occurred while updating User with email=${req.user.email} `,
+          `Error occurred while updating User with email=${email} `,
       });
     });
 };

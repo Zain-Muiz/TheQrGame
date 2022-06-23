@@ -37,13 +37,22 @@
       <div class="open"></div>
       <!-- modal -->
       <div class="box" id="box">
-        <div class="imgBox">
-          <img src="./logo.png" alt="" />
-        </div>
+        
         <% if (qr_score> 0){ %>
-            <h2 class="title">Congratulations You Got This! 🌟</h2>
+          <div class="imgBox">
+            <img src="./cong.jpg" alt="" />
+          </div>
+            <h2 class="title"> You Got This! 🌟 But its not over yet...Next QR awaits you. </h2>
+        <% }else if (qr_score == 0) { %>
+          <div class="imgBox">
+            <img src="https://i.pinimg.com/736x/5f/92/5a/5f925a4b065b191e76aed89ab4d94d17.jpg" alt="" />
+          </div>
+            <h2 class="title">Your QR Code was curropted by an uninvited guest.</h2>
         <% }else { %>
-            <h2 class="title">Oops ..</h2>
+          <div class="imgBox">
+            <img src="./hacker.jpg" alt="" />
+          </div>
+            <h2 class="title">Oops..He has spotted you. You should visit our agent for help. Stay safe.</h2>
         <% } %>
         <p>
           <h3 class="scale-up-center title"><span class="" style="font-size:100px"><%= qr_score %></span>&nbsp;&nbsp; points</h3>  
@@ -53,6 +62,7 @@
             <% if (qr_score> 0){ %>
                 <button class="close">Claim Now!</button>
             <% }else { %>
+                <a style="text-decoration: none;" href="https://www.instagram.com/_athena22_/"><button class="close">Visit Agent Profile</button></a>
                 <button class="close">View Dashboard</button>
             <% } %>
           

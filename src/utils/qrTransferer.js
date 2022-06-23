@@ -1,17 +1,20 @@
 const http = require("http");
 const fs = require("fs");
-var QRCode = require("qrcode");
-const { v4: uuidv4 } = require("uuid");
 const db = require("../db/models/index");
 const Op = db.Sequelize.Op;
 
-const qrTransferer = async (links) => {
+const qrTransferer = async (res) => {
   db.qrCodes
-    .findAll({
-      where: {},
+    .findAll({ raw: true })
+    .then((result) => {
+      result1 = result.slice(1, 74);
+      result2 = result.slice(74);
+      console.log(result1);
+      console.log(result2);
     })
-    .then((result) => console.log(result))
     .catch((err) => {
       console.log(err);
     });
 };
+
+module.exports = qrTransferer;

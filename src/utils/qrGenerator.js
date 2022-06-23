@@ -11,11 +11,11 @@ const qrGenerator = async (links) => {
   links.forEach((linkstrand) => {
     const url = domain + linkstrand;
     console.log(linkstrand);
-    image = QRCode.toFile(`./QRs/type3/${linkstrand}.png`, url);
+    image = QRCode.toFile(`./QRs/type4/${linkstrand}.png`, url);
     db.qrLevels
       .findOne({
         where: {
-          qr_level: 3,
+          qr_level: 2,
         },
       })
       .then((qr_levels) => {

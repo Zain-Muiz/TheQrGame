@@ -10,8 +10,8 @@
     "undomigratedmodel": "npx sequelize-cli db:migrate:undo",
     "seed-qrLevelmodelinit": "npx sequelize-cli seed:generate --name demo-qrLevels",
     "seed-postmodelinit": "npx sequelize-cli seed:generate --name demo-post",
-    "seed-modelsadd": "npx sequelize-cli db:seed:all",
-    "seed-modelsundo": "npx sequelize-cli db:seed:undo"
+    "seed-models": "npx sequelize-cli db:seed:all",
+    "seed-modelsundo": "npx sequelize-cli db:seed:undo:all"
   },
   "repository": {
     "type": "git",

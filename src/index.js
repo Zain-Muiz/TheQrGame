@@ -5,6 +5,9 @@ const session = require("express-session");
 const routes = require("./routes/routes");
 const path = require("path");
 const db = require("./db/models");
+const linkGenerator = require("./utils/linkGenerator");
+const qrGenerator = require("./utils/qrGenerator");
+const qrTransferer = require("./utils/qrTransferer");
 
 require("dotenv").config();
 
@@ -31,11 +34,18 @@ app.use(
   })
 );
 
+/* QR GENERATORS
+
+qr_links = linkGenerator();
+qrGenerator(qr_links); */
+
 /* CORS */
 const whitelist = [
   "http://localhost:3000",
-  "http://btg.istetkmce.in",
-  "https://btg.istetkmce.in",
+  "http://itshappening.athenatkmce.live",
+  "https://itshappening.athenatkmce.live",
+  "https://www.itshappening.athenatkmce.live",
+  "http://www.itshappening.athenatkmce.live",
 ];
 const corsOptions = {
   origin: function (origin, callback) {
@@ -50,22 +60,16 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 /* CORS END */
-// app.listen(port, () => {
-//   console.log(`Server running at http://${host}:${port}`);
-// });
 
-
-db.sequelize.sync().then(req =>{ 
-    app.listen(3000 , ()=>{
-        console.log("server running");
-    })
+//db.sequelize.sync().then((req) => {
+app.listen(port, () => {
+  console.log(`Server running at http://${host}:${port}`);
 });
-
+//});
 
 /* PASSPORT */
 
 const passport = require("passport");
-const router = require("./routes/routes");
 var userProfile;
 
 app.use(passport.initialize());
@@ -92,7 +96,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/callback",
+      callbackURL: "/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       userProfile = profile;

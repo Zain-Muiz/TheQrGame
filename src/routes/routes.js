@@ -9,7 +9,7 @@ const passportAuth = require("../auth/passportAuth");
 router.get("/signup", passportAuth, userController.createUser);
 router.get("/home", publicController.homePage);
 router.get("/register", publicController.homePage);
-// router.get("/welcome", passportAuth, publicController.welcomePage);
+router.get("/", publicController.homePage);
 router.get("/updateprofile", passportAuth, userController.updateUserInfoPage);
 router.post("/updateprofile", passportAuth, userController.updateUserInfo);
 router.get("/:id", passportAuth, userController.ScanQR);
