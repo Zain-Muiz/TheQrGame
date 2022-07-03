@@ -5,14 +5,30 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins";
+  background-image: url("./back.jpg");
 }
 .container {
   width: 100%;
   height: 100vh;
-  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.card {
+  background: rgb(246, 248, 252) !important;
+  border: 4px solid #294cc2 !important;
+  box-shadow: 0 0 10px #47a3ee;
+  border-radius: 7px;
+}
+
+.card * {
+  background: transparent !important;
+}
+.cardr:focus {
+  outline: none;
+  border-color: #0c8af1;
+  box-shadow: 0 0 10px #47a3ee;
 }
 /* .open {
   padding: 5px 20px;

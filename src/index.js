@@ -34,10 +34,13 @@ app.use(
   })
 );
 
-/* QR GENERATORS
+/* QR GENERATORS */
 
-qr_links = linkGenerator();
-qrGenerator(qr_links); */
+// qr_links = linkGenerator();
+// qrGenerator(qr_links);
+
+/* QR TRANSFER */
+// qrTransferer();
 
 /* CORS */
 const whitelist = [

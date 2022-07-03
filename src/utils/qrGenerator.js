@@ -6,16 +6,16 @@ const db = require("../db/models/index");
 const Op = db.Sequelize.Op;
 
 const qrGenerator = async (links) => {
-  domain = "www.itshappening.athenatkmce.live/";
+  domain = "itshappening.athenatkmce.live/";
   console.log(links);
   links.forEach((linkstrand) => {
     const url = domain + linkstrand;
     console.log(linkstrand);
-    image = QRCode.toFile(`./QRs/type4/${linkstrand}.png`, url);
+    image = QRCode.toFile(`./QRs/PreEvent29/type4/${linkstrand}.png`, url);
     db.qrLevels
       .findOne({
         where: {
-          qr_level: 2,
+          qr_level: -1,
         },
       })
       .then((qr_levels) => {

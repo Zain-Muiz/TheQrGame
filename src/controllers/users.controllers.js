@@ -50,7 +50,6 @@ module.exports.createUser = async (req, res) => {
 // POST
 
 module.exports.updateUserInfo = async (req, res) => {
-  console.log("Hey");
   const { ph_no, branch, section, year } = req.body;
   const batch = branch + section + year;
   const email = req.user.emails[0].value;

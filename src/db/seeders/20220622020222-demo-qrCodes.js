@@ -1144,9 +1144,217 @@ qrCodesNew = [
   },
 ];
 
+qrCodesNew2 = [
+  {
+    id: "062117f7-02a8-476d-af3f-f7e1fd4f9e89",
+    qr_link: "kn3aek",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "07c33bd1-445f-4ddb-9a26-7880221cf10a",
+    qr_link: "a3imfg",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "0b51cc67-12d3-486e-82d1-74a66934daf2",
+    qr_link: "j1yye",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "0ef030e7-066b-45f4-9169-f26efa49e26b",
+    qr_link: "3nwyo",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "127e0ddf-1b2e-4700-afce-adb06f349c86",
+    qr_link: "glnmt",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "172c5aa1-5060-4c81-9bdc-905da108e38a",
+    qr_link: "r8lgd",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "1952fb1d-877d-4191-84a2-8cc368860f0e",
+    qr_link: "gkyu1",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "1c2507a8-8b4f-4ee1-ac41-5d9740cf422c",
+    qr_link: "5jtly",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "295d89ce-c0b9-4e3d-a9be-f15a9ab27473",
+    qr_link: "v8n8m",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "2c70d585-094c-406e-80bd-c74a1e23d01e",
+    qr_link: "winju",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "2f89afc0-cfc8-4cff-9a24-176d64d31c31",
+    qr_link: "8mqut",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "30bcb7d9-3a2b-46f8-988f-7c223417de1a",
+    qr_link: "yyayo",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "45f1ede0-52c8-4a7b-98c2-a549e58a5956",
+    qr_link: "5tv5jl",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "5b16203f-32b4-4a65-a3b6-d630e38bddad",
+    qr_link: "n4shz",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "6d9ba0f3-9ec6-4321-ae4f-86aae0514aa8",
+    qr_link: "9ah7o",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "6ec700b6-a5a0-4498-8e1b-e3b83b10b3c5",
+    qr_link: "3arzx",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "73ce34dc-ba20-4e31-8d24-b9a78ef2fd25",
+    qr_link: "mjb2o",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "7c3ec08e-7a92-486b-980f-5b06458c1422",
+    qr_link: "ibpqog",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "8216220d-87ca-44a0-b71a-a1fa647830b1",
+    qr_link: "u9afw",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "8abcaaaa-eea6-42d6-a53a-5ee3cd040498",
+    qr_link: "blz62g",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "902a12ba-b653-484e-a2b5-a6aa12916b3c",
+    qr_link: "xjfee",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "9140db11-419d-4317-876e-9647bb8fd129",
+    qr_link: "xrfk",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "9329d68e-1f33-4244-b1de-0f91dc89111f",
+    qr_link: "cfk68i",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "94a7556d-631a-4d36-af84-0691f260142c",
+    qr_link: "wbrh7f",
+    qr_level_id: "0ebaa526-192d-4069-893e-e9914f03d39b",
+  },
+  {
+    id: "951bb955-4a49-4680-80b4-62f6756a2f3b",
+    qr_link: "asgs7",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "a12c466c-51fd-4f58-b29d-b6b589ab3d9c",
+    qr_link: "jxck4",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "af30fce9-180f-45fc-9615-f387997e74d2",
+    qr_link: "sdho6",
+    qr_level_id: "0ebaa526-192d-4069-893e-e9914f03d39b",
+  },
+  {
+    id: "b09163ee-803b-4f05-855e-0ec72920f087",
+    qr_link: "b46ff",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "b1f7090a-89e4-4ddc-8a94-b0ee2bf68910",
+    qr_link: "fs2vlk",
+    qr_level_id: "0ebaa526-192d-4069-893e-e9914f03d39b",
+  },
+  {
+    id: "b3a2c9a0-2f91-4d22-8ac3-d8c1201ba58c",
+    qr_link: "dqn9fk",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "b3ff7b6e-c6db-462e-b8ec-0731fa49c8ae",
+    qr_link: "c3rq0h",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "b7b9b15a-31c0-4dd3-aff6-385c489f04fa",
+    qr_link: "xruao",
+    qr_level_id: "0ebaa526-192d-4069-893e-e9914f03d39b",
+  },
+  {
+    id: "ba2bd167-de8a-41e9-9d63-1742be661f3b",
+    qr_link: "s8rmv",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+  {
+    id: "bb449cb4-47b9-4089-a18a-4e20f2f147bd",
+    qr_link: "tx9hh",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "c607746d-33d5-4eac-9e1f-8bb421acc73d",
+    qr_link: "qt5h9",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "d1dca4a4-fb45-452d-bae4-a1439151b085",
+    qr_link: "hjdbf",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "d41a1195-f0fc-4583-8abb-dc99919ab1f4",
+    qr_link: "0pyaa",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "d451b341-5a15-4094-b4bd-627c1a5a35cb",
+    qr_link: "5dbkm",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "dcd0a18b-4d01-495a-8312-dfbc61794f27",
+    qr_link: "iezji",
+    qr_level_id: "2f3a8eb9-cfb9-4641-801e-e2d90a0c3843",
+  },
+  {
+    id: "dd251bc3-16bf-475f-8ae3-f1e148ea36ee",
+    qr_link: "flhxu",
+    qr_level_id: "1df34664-e9ef-44c9-a3bc-1c090782bbb6",
+  },
+  {
+    id: "e170d4cb-f7df-4ea0-9b13-5788a6d10d05",
+    qr_link: "x4ruol",
+    qr_level_id: "b89cef9a-8e91-4ac0-b239-827aa19fa575",
+  },
+];
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert("qrCodes", qrCodesNew);
+    return queryInterface.bulkInsert("qrCodes", qrCodesNew2);
   },
 
   down: (queryInterface, Sequelize) => {
