@@ -13,7 +13,7 @@ router.get("/register", publicController.homePage);
 router.get("/", publicController.homePage);
 router.get("/updateprofile", passportAuth, userController.updateUserInfoPage);
 router.post("/updateprofile", passportAuth, userController.updateUserInfo);
-// router.get("/:id", passportAuth, checkProfileComplete, userController.ScanQR);
-router.get("/:id", publicController.homePage);
+router.get("/:id", passportAuth, checkProfileComplete, userController.ScanQR);
+// router.get("/:id", publicController.homePage);
 
 module.exports = router;
